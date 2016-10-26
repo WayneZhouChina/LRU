@@ -53,6 +53,7 @@ func (l *LRU) Get(key interface{}) (interface{}, interface{}, bool) {
 
 func (l *LRU) removeOldest() bool {
 	elem := l.list.Back()
+
 	if elem != nil {
 		elemInterface := l.list.Remove(elem)
 		delete(l.items, elemInterface.(*Entry).key)
