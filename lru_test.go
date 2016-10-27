@@ -20,3 +20,14 @@ func TestSetGet(t *testing.T) {
 		t.Errorf("Get error")
 	}
 }
+
+func TestPurge(t *testing.T) {
+	l := New(8)
+	for i := 0; i < 10; i++ {
+		l.Set(i, i)
+	}
+	l.Purge()
+	if len(l.items) != 0 || l.list.Len() != 0 {
+		t.Errorf("Purge failed")
+	}
+}
