@@ -47,9 +47,12 @@ func (l *LRU) Get(key interface{}) (interface{}, interface{}, bool) {
 	return nil, nil, false
 }
 
-//func (l *LRU) Purge(key interface{}) bool {
-//
-//}
+func (l *LRU) Purge() {
+	for key, _ := range l.items {
+		delete(l.items, key)
+	}
+	l.list.Init()
+}
 
 func (l *LRU) removeOldest() bool {
 	elem := l.list.Back()
