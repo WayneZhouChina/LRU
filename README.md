@@ -6,7 +6,7 @@
 
 ## Installation
 
-	$ go get github.com/WayneZhouChina/LRU
+	$ go get github.com/wayne666/LRU
 
 ## Usage
 
